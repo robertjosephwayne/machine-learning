@@ -1,6 +1,6 @@
 # Example of simulating a binomial process and counting success
-from numpy.random import binomial
-from scipy.stats import binom
+from numpy.random import binomial as numpy_binomial
+from scipy.stats import binom as scipy_binomial
 
 # Define the parameters of the distribution
 
@@ -11,16 +11,16 @@ p = 0.3
 k = 100
 
 # Run a single simulation
-success = binomial(k, p)
+success = numpy_binomial(k, p)
 
 print('Total Success: %d' % success)
 
 # Calculate moments
-mean, var, _, _ = binom.stats(k, p, moments='mvsk')
+mean, var, _, _ = scipy_binomial.stats(k, p, moments='mvsk')
 print('Mean=%.3f, Variance=%.3f' % (mean, var))
 
 # Define the distribution
-dist = binom(k, p)
+dist = scipy_binomial(k, p)
 
 # Calculate the probability of n successes
 for n in range(10, 110, 10):

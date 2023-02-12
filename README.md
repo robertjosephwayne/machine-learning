@@ -1,1 +1,3 @@
-# machine-learning
+# Machine Learning
+
+Notes and code examples related to machine learning.

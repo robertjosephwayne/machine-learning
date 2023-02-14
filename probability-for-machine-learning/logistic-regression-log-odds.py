@@ -1,7 +1,6 @@
+# Example of converting between probability and odds
 from math import log
 from math import exp
-
-# Example of converting between probability and odds
 
 # Define probability of success
 prob = 0.8

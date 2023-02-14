@@ -1,8 +1,7 @@
+# Example of fitting a gaussian mixture model with expectation maximization
 from numpy import hstack
 from numpy.random import normal
 from sklearn.mixture import GaussianMixture
-
-# Example of fitting a gaussian mixture model with expectation maximization
 
 # Generate a sample
 X1 = normal(loc=20, scale=5, size=3000)

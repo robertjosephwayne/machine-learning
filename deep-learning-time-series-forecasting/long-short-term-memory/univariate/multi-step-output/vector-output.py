@@ -1,4 +1,4 @@
-# Example of a stacked LSTM for multi-step time series forecasting
+# Example of a stacked LSTM for multi-step-output time series forecasting
 from numpy import array
 from keras.models import Sequential
 from keras.layers import Dense, LSTM

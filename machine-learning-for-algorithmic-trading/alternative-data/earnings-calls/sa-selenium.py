@@ -26,7 +26,7 @@ def parse_html(html):
     """Main HTML parser function"""
     date_pattern = re.compile(r'(\d{2})-(\d{2})-(\d{2})')
     quarter_pattern = re.compile(r'(\bQ\d\b)')
-    soup = BeautifulSoup(html, 'lxml')
+    soup = BeautifulSoup(html, 'html.parser')
 
     meta, participants, content = {}, [], []
     h1 = soup.find('h1', itemprop='headline')
@@ -86,12 +86,12 @@ page = 1
 driver = webdriver.Chrome()
 while next_page:
     print(f'Page: {page}')
-    url = f'{SA_URL}/earnings/earnings-call-transcripts/{page}'
+    url = f'{SA_URL}/earnings/earnings-call-transcripts?page={page}'
     driver.get(urljoin(SA_URL, url))
     sleep(8 + (random() - .5) * 2)
     response = driver.page_source
     page += 1
-    soup = BeautifulSoup(response, 'lxml')
+    soup = BeautifulSoup(response, 'html.parser')
     links = soup.find_all(name='a', string=TRANSCRIPT)
     if len(links) == 0:
         next_page = False
